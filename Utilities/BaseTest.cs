@@ -18,7 +18,7 @@ namespace AutomationFramework.Utilities
         {
             driver = new ChromeDriver();
             driver.Manage().Window.Maximize();
-            driver.Navigate().GoToUrl("https://example.com"); // Replace with the URL you want to test.
+            driver.Navigate().GoToUrl("https://demoqa.com");
         }
 
         [TearDown]

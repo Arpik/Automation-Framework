@@ -4,6 +4,10 @@ obj/
 *.user
 *.vspscc
 
+# Ignore NuGet packages folder
+/packages/
+
+
 # Ignore build results
 [Dd]ebug/
 [Dd]ebugPublic/

@@ -6,16 +6,20 @@ using System.Threading.Tasks;
 using AutomationFramework.Pages;
 using AutomationFramework.Utilities;
 using NUnit.Framework;
-using Allure.Commons;
+using Allure.Net.Commons;
 using NUnit.Allure.Attributes;
 using NUnit.Allure.Core;
+// using Allure.NUnit.Attributes;
 
 
 namespace AutomationFramework.Tests
 {
+    [AllureNUnit]
+    [AllureSuite("Login Tests")]
     public class LoginTests : BaseTest
     {
         [Test]
+        [AllureSeverity(SeverityLevel.critical)]
         public void SuccessfulLoginTest()
         {
             var loginPage = new LoginPage(driver);
@@ -23,7 +27,7 @@ namespace AutomationFramework.Tests
             loginPage.EnterPassword("testpassword");
             loginPage.ClickLoginButton();
 
-            Assert.IsTrue(driver.Url.Contains("dashboard")); // Replace with actual validation.
+            Assert.That(driver.Url.Contains("dashboard")); // Replace with actual validation.
         }
     }
 }

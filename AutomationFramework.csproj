@@ -114,6 +114,7 @@
     <Folder Include="Reports\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include=".gitignore" />
     <None Include="allureConfig.Template.json" />
     <None Include="app.config" />
     <None Include="packages.config" />
