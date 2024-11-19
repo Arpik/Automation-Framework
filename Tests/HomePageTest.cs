@@ -9,6 +9,9 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using DemoQA.PageObjects;
 using OpenQA.Selenium.Support.UI;
+using Allure.Net.Commons;
+using NUnit.Allure.Attributes;
+using NUnit.Allure.Core;
 
 namespace DemoQA.Tests
 {
@@ -26,6 +29,8 @@ namespace DemoQA.Tests
             _homePage = new HomePage(_driver);
         }
 
+        [AllureSeverity(SeverityLevel.critical)]
+        [AllureDescription("This test validates a successful scenario for Element section.")]
         [Test]
         public void TestGoToElementsSection()
         {
