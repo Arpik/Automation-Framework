@@ -1,49 +1,44 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
-using DemoQA.PageObjects;
-using OpenQA.Selenium.Support.UI;
-using Allure.Net.Commons;
-using NUnit.Allure.Attributes;
-using NUnit.Allure.Core;
+using AutomationFramework.Pages;
+using AutomationFramework.Utilities;
 
-namespace DemoQA.Tests
+namespace AutomationFramework.Tests
 {
-    public class HomePageTest
+    [TestFixture]
+    [Parallelizable(ParallelScope.All)]
+    [TestFixture(BrowserType.Chrome)]
+    [TestFixture(BrowserType.Firefox)]
+    [TestFixture(BrowserType.Edge)]
+    public class HomePageTests : BaseTest
     {
-        private IWebDriver _driver;
-        private HomePage _homePage;
+        private BrowserType _browserType;
 
-        [SetUp]
-        public void Setup()
+        public HomePageTests(BrowserType browserType)
         {
-            _driver = new ChromeDriver();
-            _driver.Manage().Window.Maximize();
-            _driver.Navigate().GoToUrl("https://demoqa.com/");
-            _homePage = new HomePage(_driver);
+            _browserType = browserType;
         }
 
-        [AllureSeverity(SeverityLevel.critical)]
-        [AllureDescription("This test validates a successful scenario for Element section.")]
-        [Test]
+        [SetUp]
+        public void SetUp()
+        {
+            InitializeDriver(_browserType);
+        }
+
+        [Test, Description("Verify navigation to the Elements section")]
         public void TestGoToElementsSection()
         {
-            IWebElement element = _driver.FindElement(By.XPath("//h5[text()='Elements']"));
-            ((IJavaScriptExecutor)_driver).ExecuteScript("arguments[0].scrollIntoView(true);", element);
-            element.Click();
+            var homePage = new HomePage(Driver);
+            // Assert.That(homePage.IsElementsSectionDisplayed(), "Elements section is not displayed on the Home Page.");
+
+            homePage.GoToElementsSection();
+            Assert.That(Driver.Url.Contains("elements"), "Failed to navigate to the Elements section.");
         }
 
         [TearDown]
-        public void Teardown()
+        public void TearDown()
         {
-            _driver.Quit();
+            Driver.Quit();
         }
     }
 }
-

@@ -1,30 +1,53 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Firefox;
+using OpenQA.Selenium.Edge;
+using System;
+using AutomationFramework.Utilities;
 
-namespace AutomationFramework.Utilities
+namespace AutomationFramework.Tests
 {
-    public class BaseTest
+    public abstract class BaseTest
     {
-        protected IWebDriver driver;
+        protected IWebDriver Driver;
 
-        [SetUp]
-        public void SetUp()
+        /// <summary>
+        /// Initializes the WebDriver instance based on the specified browser type.
+        /// </summary>
+        /// <param name="browserType">The browser type to use for the test.</param>
+        protected void InitializeDriver(BrowserType browserType)
         {
-            driver = new ChromeDriver();
-            driver.Manage().Window.Maximize();
-            driver.Navigate().GoToUrl("https://demoqa.com");
+            switch (browserType)
+            {
+                case BrowserType.Chrome:
+                    Driver = new ChromeDriver();
+                    break;
+                case BrowserType.Firefox:
+                    Driver = new FirefoxDriver();
+                    break;
+                case BrowserType.Edge:
+                    Driver = new EdgeDriver();
+                    break;
+                default:
+                    throw new ArgumentException($"Unsupported browser type: {browserType}");
+            }
+
+            Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+            Driver.Manage().Window.Maximize();
+            Driver.Navigate().GoToUrl("https://demoqa.com/");
         }
 
-        [TearDown]
-        public void TearDown()
+        /// <summary>
+        /// Closes the WebDriver instance and cleans up resources.
+        /// </summary>
+        protected void QuitDriver()
         {
-            driver.Quit();
+            if (Driver != null)
+            {
+                Driver.Quit();
+                Driver.Dispose();
+            }
         }
     }
 }
