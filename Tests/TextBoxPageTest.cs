@@ -23,6 +23,7 @@ namespace AutomationFramework.Tests
         }
 
         [Test, Description("Verify filling and submitting the Text Box form")]
+
         public void TestFillTextBoxForm()
         {
             var homePage = new HomePage(Driver);
@@ -30,16 +31,17 @@ namespace AutomationFramework.Tests
 
             // Navigate to Text Box section
             var textBoxPage = new TextBoxPage(Driver);
+            textBoxPage.ClickOnTextBoxItem();
             textBoxPage.FillTextBoxForm(
-                "John Doe",
-                "john.doe@example.com",
-                "123 Main St",
+                "Something Beautiful",
+                "somethingbeautiful@example.com",
+                "The best address to live / 1",
                 "456 Elm St"
             );
 
             // Assertions
-            Assert.That(textBoxPage.GetOutputName(), Contains.Substring("John Doe"), "Name output is incorrect.");
-            Assert.That(textBoxPage.GetOutputEmail(), Contains.Substring("john.doe@example.com"), "Email output is incorrect.");
+            Assert.That(textBoxPage.GetOutputName(), Contains.Substring("Something Beautiful"), "Name output is incorrect.");
+            Assert.That(textBoxPage.GetOutputEmail(), Contains.Substring("somethingbeautiful@example.com"), "Email output is incorrect.");
         }
 
         [TearDown]
