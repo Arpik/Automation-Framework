@@ -10,7 +10,7 @@ namespace AutomationFramework.Tests
     {
         private static readonly BrowserType[] Browsers = (BrowserType[])Enum.GetValues(typeof(BrowserType));
 
-        [Test, TestCaseSource(nameof(Browsers))]
+        [Test, TestCaseSource(nameof(Browsers)), Description("Verify filling and submitting the Text Box form for multiple browsers")]
         public void TestFillTextBoxForm(BrowserType browserType)
         {
             // Initialize browser
@@ -39,4 +39,3 @@ namespace AutomationFramework.Tests
         }
     }
 }
-
