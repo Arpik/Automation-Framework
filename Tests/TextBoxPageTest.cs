@@ -13,13 +13,30 @@ namespace AutomationFramework.Tests
         [Test, TestCaseSource(nameof(Browsers))]
         public void TestFillTextBoxForm(BrowserType browserType)
         {
+            // Initialize browser
             InitializeDriver(browserType);
+
+            // Navigate to Home Page and Elements Section
+            var homePage = new HomePage(Driver);
+            homePage.GoToElementsSection();
+
+            // Navigate to Text Box Section and Fill the Form
             var textBoxPage = new TextBoxPage(Driver);
+            textBoxPage.ClickOnTextBoxItem();
+            textBoxPage.FillTextBoxForm(
+                "Something Beautiful",
+                "somethingbeautiful@example.com",
+                "The best address to live / 1",
+                "456 Elm St"
+            );
 
-            textBoxPage.FillTextBoxForm("John Doe", "john.doe@example.com", "123 Main St", "456 Elm St");
-            // Assert.That(textBoxPage.IsFormSubmittedSuccessfully(), "TextBox form submission failed.");
+            // Assertions
+            Assert.That(textBoxPage.GetOutputName(), Contains.Substring("Something Beautiful"), "Name output is incorrect.");
+            Assert.That(textBoxPage.GetOutputEmail(), Contains.Substring("somethingbeautiful@example.com"), "Email output is incorrect.");
 
-            QuitDriver(); // Clean up after the test
+            // Quit the driver
+            QuitDriver();
         }
     }
 }
+
