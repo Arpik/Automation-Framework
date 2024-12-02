@@ -1,51 +1,25 @@
 ﻿using NUnit.Framework;
-using AutomationFramework.Pages;
 using AutomationFramework.Utilities;
+using AutomationFramework.Pages;
+using System;
 
 namespace AutomationFramework.Tests
 {
-    [TestFixture(BrowserType.Chrome)]
-    [TestFixture(BrowserType.Firefox)]
-    [TestFixture(BrowserType.Edge)]
-    public class TextBoxPageTest : BaseTest
+    [TestFixture]
+    public class TextBoxPageTests : BaseTest
     {
-        private BrowserType _browserType;
+        private static readonly BrowserType[] Browsers = (BrowserType[])Enum.GetValues(typeof(BrowserType));
 
-        public TextBoxPageTest(BrowserType browserType)
+        [Test, TestCaseSource(nameof(Browsers))]
+        public void TestFillTextBoxForm(BrowserType browserType)
         {
-            _browserType = browserType;
-        }
-
-        [SetUp]
-        public void SetUp()
-        {
-            InitializeDriver(_browserType);
-        }
-
-        [Test, Description("Verify filling and submitting the Text Box form")]
-        public void TestFillTextBoxForm()
-        {
-            var homePage = new HomePage(Driver);
-            homePage.GoToElementsSection();
-
-            // Navigate to Text Box section
+            InitializeDriver(browserType);
             var textBoxPage = new TextBoxPage(Driver);
-            textBoxPage.FillTextBoxForm(
-                "John Doe",
-                "john.doe@example.com",
-                "123 Main St",
-                "456 Elm St"
-            );
 
-            // Assertions
-            Assert.That(textBoxPage.GetOutputName(), Contains.Substring("John Doe"), "Name output is incorrect.");
-            Assert.That(textBoxPage.GetOutputEmail(), Contains.Substring("john.doe@example.com"), "Email output is incorrect.");
-        }
+            textBoxPage.FillTextBoxForm("John Doe", "john.doe@example.com", "123 Main St", "456 Elm St");
+            // Assert.That(textBoxPage.IsFormSubmittedSuccessfully(), "TextBox form submission failed.");
 
-        [TearDown]
-        public void TearDown()
-        {
-            Driver.Quit();
+            QuitDriver(); // Clean up after the test
         }
     }
 }

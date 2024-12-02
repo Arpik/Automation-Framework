@@ -1,44 +1,27 @@
 ﻿using NUnit.Framework;
-using OpenQA.Selenium;
-using AutomationFramework.Pages;
 using AutomationFramework.Utilities;
+using AutomationFramework.Pages;
+using System;
 
 namespace AutomationFramework.Tests
 {
     [TestFixture]
-    [Parallelizable(ParallelScope.All)]
-    [TestFixture(BrowserType.Chrome)]
-    [TestFixture(BrowserType.Firefox)]
-    [TestFixture(BrowserType.Edge)]
     public class HomePageTests : BaseTest
     {
-        private BrowserType _browserType;
+        // Get all BrowserType values dynamically
+        private static readonly BrowserType[] Browsers = (BrowserType[])Enum.GetValues(typeof(BrowserType));
 
-        public HomePageTests(BrowserType browserType)
+        [Test, TestCaseSource(nameof(Browsers))]
+        public void TestGoToElementsSection(BrowserType browserType)
         {
-            _browserType = browserType;
-        }
-
-        [SetUp]
-        public void SetUp()
-        {
-            InitializeDriver(_browserType);
-        }
-
-        [Test, Description("Verify navigation to the Elements section")]
-        public void TestGoToElementsSection()
-        {
+            InitializeDriver(browserType); // Initialize the driver with the given browser type
             var homePage = new HomePage(Driver);
-            // Assert.That(homePage.IsElementsSectionDisplayed(), "Elements section is not displayed on the Home Page.");
 
             homePage.GoToElementsSection();
             Assert.That(Driver.Url.Contains("elements"), "Failed to navigate to the Elements section.");
-        }
 
-        [TearDown]
-        public void TearDown()
-        {
-            Driver.Quit();
+            QuitDriver(); // Clean up after the test
         }
     }
 }
+
