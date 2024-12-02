@@ -1,35 +1,26 @@
-﻿using NUnit.Framework;
-using AutomationFramework.Pages;
+using NUnit.Framework;
 using AutomationFramework.Utilities;
+using AutomationFramework.Pages;
+using System;
 
 namespace AutomationFramework.Tests
 {
-    [TestFixture(BrowserType.Chrome)]
-    [TestFixture(BrowserType.Firefox)]
-    [TestFixture(BrowserType.Edge)]
-    public class TextBoxPageTest : BaseTest
+    [TestFixture]
+    public class TextBoxPageTests : BaseTest
     {
-        private BrowserType _browserType;
+        private static readonly BrowserType[] Browsers = (BrowserType[])Enum.GetValues(typeof(BrowserType));
 
-        public TextBoxPageTest(BrowserType browserType)
+        [Test, TestCaseSource(nameof(Browsers)), Description("Verify filling and submitting the Text Box form for multiple browsers")]
+        public void TestFillTextBoxForm(BrowserType browserType)
         {
-            _browserType = browserType;
-        }
+            // Initialize browser
+            InitializeDriver(browserType);
 
-        [SetUp]
-        public void SetUp()
-        {
-            InitializeDriver(_browserType);
-        }
-
-        [Test, Description("Verify filling and submitting the Text Box form")]
-
-        public void TestFillTextBoxForm()
-        {
+            // Navigate to Home Page and Elements Section
             var homePage = new HomePage(Driver);
             homePage.GoToElementsSection();
 
-            // Navigate to Text Box section
+            // Navigate to Text Box Section and Fill the Form
             var textBoxPage = new TextBoxPage(Driver);
             textBoxPage.ClickOnTextBoxItem();
             textBoxPage.FillTextBoxForm(
@@ -42,12 +33,9 @@ namespace AutomationFramework.Tests
             // Assertions
             Assert.That(textBoxPage.GetOutputName(), Contains.Substring("Something Beautiful"), "Name output is incorrect.");
             Assert.That(textBoxPage.GetOutputEmail(), Contains.Substring("somethingbeautiful@example.com"), "Email output is incorrect.");
-        }
 
-        [TearDown]
-        public void TearDown()
-        {
-            Driver.Quit();
+            // Quit the driver
+            QuitDriver();
         }
     }
 }
