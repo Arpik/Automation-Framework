@@ -15,15 +15,12 @@ namespace AutomationFramework.Pages
         }
 
         // Locators
-        private IWebElement ElementsSection => _driver.FindElement(By.XPath("//h5[text()='Elements']"));
-        private IWebElement FormsSection => _driver.FindElement(By.XPath("//h5[text()='Forms']"));
+        public IWebElement ElementsSection => _driver.FindElement(By.XPath("//h5[text()='Elements']"));
+        public IWebElement FormsSection => _driver.FindElement(By.XPath("//h5[text()='Forms']"));
 
         // Actions
         public void GoToElementsSection()
         {
-            // Scroll to the element to make it visible
-            ((IJavaScriptExecutor)_driver).ExecuteScript("arguments[0].scrollIntoView(true);", ElementsSection);
-
             // Wait for the element to be clickable (replacing SeleniumExtras)
             WaitForElementToBeClickable(ElementsSection);
 
@@ -33,9 +30,6 @@ namespace AutomationFramework.Pages
 
         public void GoToFormsSection()
         {
-            // Scroll to the element to make it visible
-            ((IJavaScriptExecutor)_driver).ExecuteScript("arguments[0].scrollIntoView(true);", FormsSection);
-
             // Wait for the element to be clickable
             WaitForElementToBeClickable(FormsSection);
 
