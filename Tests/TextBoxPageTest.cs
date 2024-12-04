@@ -29,6 +29,9 @@ namespace AutomationFramework.Tests
                 "The best address to live / 1",
                 "456 Elm St"
             );
+            // RemoveAdIframes();
+            ScrollToElement(textBoxPage.SubmitButton);
+            textBoxPage.ClickOnSubmitButton();
 
             // Assertions
             Assert.That(textBoxPage.GetOutputName(), Contains.Substring("Something Beautiful"), "Name output is incorrect.");
