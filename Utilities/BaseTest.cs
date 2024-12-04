@@ -18,6 +18,11 @@ namespace AutomationFramework.Tests
             Driver.Navigate().GoToUrl("https://demoqa.com/");
         }
 
+        public void ScrollToElement(IWebElement element)
+        {
+            ((IJavaScriptExecutor)Driver).ExecuteScript("arguments[0].scrollIntoView(true);", element);
+        }
+
         public void QuitDriver()
         {
             Driver.Quit();
