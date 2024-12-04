@@ -26,6 +26,13 @@ namespace AutomationFramework.Pages
         private IWebElement SubmitButton => _driver.FindElement(By.Id("submit"));
         private IWebElement OutputName => _driver.FindElement(By.Id("name"));
         private IWebElement OutputEmail => _driver.FindElement(By.Id("email"));
+        private IWebElement TextBoxMenuItem => _driver.FindElement(By.XPath("//span[text()='Text Box']"));
+
+        // Actions
+        public void ClickOnTextBoxItem()
+        {
+            TextBoxMenuItem.Click();
+        }
 
         // Actions
         public void FillTextBoxForm(string fullName, string email, string currentAddress, string permanentAddress)
