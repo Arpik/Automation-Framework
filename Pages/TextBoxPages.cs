@@ -35,12 +35,6 @@ namespace AutomationFramework.Pages
             TextBoxMenuItem.Click();
         }
 
-        // Actions
-        public void ClickOnTextBoxItem()
-        {
-            TextBoxItem.Click();
-        }
-
         public void FillTextBoxForm(string fullName, string email, string currentAddress, string permanentAddress)
         {
             FullNameInput.Clear();
