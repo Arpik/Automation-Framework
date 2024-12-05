@@ -18,6 +18,7 @@ namespace AutomationFramework.Tests
 
             // Navigate to Home Page and Elements Section
             var homePage = new HomePage(Driver);
+            ScrollToElement(homePage.ElementsSection);
             homePage.GoToElementsSection();
 
             // Navigate to Text Box Section and Fill the Form
