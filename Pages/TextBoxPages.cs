@@ -19,7 +19,7 @@ namespace AutomationFramework.Pages
         }
 
         // Locators
-        private IWebElement TextBoxItem => _driver.FindElement(By.Id("item-0"));
+        public IWebElement TextBoxItem => _driver.FindElement(By.Id("item-0"));
         private IWebElement FullNameInput => _driver.FindElement(By.Id("userName"));
         private IWebElement EmailInput => _driver.FindElement(By.Id("userEmail"));
         private IWebElement CurrentAddressInput => _driver.FindElement(By.Id("currentAddress"));
@@ -33,12 +33,6 @@ namespace AutomationFramework.Pages
         public void ClickOnTextBoxItem()
         {
             TextBoxMenuItem.Click();
-        }
-
-        // Actions
-        public void ClickOnTextBoxItem()
-        {
-            TextBoxItem.Click();
         }
 
         public void FillTextBoxForm(string fullName, string email, string currentAddress, string permanentAddress)

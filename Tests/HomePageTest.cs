@@ -17,6 +17,7 @@ namespace AutomationFramework.Tests
             InitializeDriver(browserType); // Initialize the driver with the given browser type
             var homePage = new HomePage(Driver);
 
+            ScrollToElement(homePage.ElementsSection);
             homePage.GoToElementsSection();
             Assert.That(Driver.Url.Contains("elements"), "Failed to navigate to the Elements section.");
 
