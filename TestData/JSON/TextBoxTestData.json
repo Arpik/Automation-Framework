@@ -1,0 +1,28 @@
+[
+  {
+    "FullName": "John Doe",
+    "Email": "john.doe@example.com",
+    "IsValid": true
+  },
+  {
+    "FullName": "Jean-Luc Picard",
+    "Email": "picard@enterprise.com",
+    "IsValid": true
+  },
+  {
+    "FullName": "",
+    "Email": "user@example.com",
+    "Email": "user@example.com",
+    "IsValid": false
+  },
+  {
+    "FullName": "Alice Johnson",
+    "Email": "alice.johnson",
+    "IsValid": false
+  },
+  {
+    "FullName": "Bob Smith",
+    "Email": "",
+    "IsValid": false
+  }
+]
