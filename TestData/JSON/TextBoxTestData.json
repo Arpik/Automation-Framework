@@ -1,28 +1,37 @@
 [
   {
-    "FullName": "John Doe",
-    "Email": "john.doe@example.com",
+    "FullName": "Important Person",
+    "Email": "someoneimportant@example.com",
+    "CurrentAddress": "123 The Most Beautiful Street",
+    "PermanentAddress": "456 Elm Street",
     "IsValid": true
   },
   {
     "FullName": "Jean-Luc Picard",
     "Email": "picard@enterprise.com",
+    "CurrentAddress": "",
+    "PermanentAddress": "456 Elm Street",
     "IsValid": true
   },
   {
     "FullName": "",
     "Email": "user@example.com",
-    "Email": "user@example.com",
+    "CurrentAddress": "123 The Most Beautiful Street",
+    "PermanentAddress": "",
     "IsValid": false
   },
   {
     "FullName": "Alice Johnson",
     "Email": "alice.johnson",
+    "CurrentAddress": "",
+    "PermanentAddress": "",
     "IsValid": false
   },
   {
     "FullName": "Bob Smith",
     "Email": "",
+    "CurrentAddress": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+    "PermanentAddress": "456 Elm Street",
     "IsValid": false
   }
 ]
