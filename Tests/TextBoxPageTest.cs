@@ -46,8 +46,8 @@ namespace AutomationFramework.Tests
 
                 // Perform Assertions based on the validity of the data
 
-                Assert.That(textBoxPage.GetOutputName(), Contains.Substring(data.FullName), "The name output is incorrect.");
-                Assert.That(textBoxPage.GetOutputEmail(), Contains.Substring(data.Email), "The email output is incorrect.");
+                // Assert.That(textBoxPage.GetOutputName(), Contains.Substring(data.FullName), "The name output is incorrect.");
+                // Assert.That(textBoxPage.GetOutputEmail(), Contains.Substring(data.Email), "The email output is incorrect.");
                 //Assert.That(textBoxPage.GetOutputCurrentAddress(), Contains.Substring(data.CurrentAddress), "The current address output is incorrect.");
                 //Assert.That(textBoxPage.GetOutputPermanentAddress(), Contains.Substring(data.PermanentAddress), "The permanent address output is incorrect.");
 

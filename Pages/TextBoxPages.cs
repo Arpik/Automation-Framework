@@ -25,8 +25,8 @@ namespace AutomationFramework.Pages
         private IWebElement CurrentAddressInput => _driver.FindElement(By.Id("currentAddress"));
         private IWebElement PermanentAddressInput => _driver.FindElement(By.Id("permanentAddress"));
         public IWebElement SubmitButton => _driver.FindElement(By.Id("submit"));
-        private IWebElement OutputName => _driver.FindElement(By.Id("name"));
-        private IWebElement OutputEmail => _driver.FindElement(By.Id("email"));
+        private IWebElement OutputName => _driver.FindElement(By.Id("Ad.Plus-970x250-2-label"));
+        private IWebElement OutputEmail => _driver.FindElement(By.Id("Ad.Plus-970x250-2"));
         private IWebElement TextBoxMenuItem => _driver.FindElement(By.XPath("//span[text()='Text Box']"));
 
         // Actions
