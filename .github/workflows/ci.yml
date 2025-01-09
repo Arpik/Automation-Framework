@@ -29,8 +29,11 @@ jobs:
 
       - name: Install ChromeDriver
         run: |
-            sudo apt-get update
-            sudo apt-get install -y chromium-browser chromium-chromedriver
+          curl -o chromedriver_win32.zip https://chromedriver.storage.googleapis.com/131.0.6778.6900/chromedriver_win32.zip
+          tar -xf chromedriver_win32.zip
+          mkdir -p C:\Tools
+          move chromedriver.exe C:\Tools
+          set PATH=%PATH%;C:\Tools
 
       # Build the project
       - name: Build the project
