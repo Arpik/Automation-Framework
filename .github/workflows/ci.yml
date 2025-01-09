@@ -30,10 +30,9 @@ jobs:
       - name: Install ChromeDriver
         run: |
           curl -o chromedriver_win32.zip https://chromedriver.storage.googleapis.com/131.0.6778.6900/chromedriver_win32.zip
-          tar -xf chromedriver_win32.zip
-          mkdir -p C:\Tools
-          move chromedriver.exe C:\Tools
-          set PATH=%PATH%;C:\Tools
+          Expand-Archive -Path chromedriver_win32.zip -DestinationPath C:\Tools
+          $env:PATH += ";C:\Tools"
+        shell: pwsh
 
       # Build the project
       - name: Build the project
