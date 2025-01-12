@@ -27,6 +27,12 @@ jobs:
       - name: Restore dependencies
         run: dotnet restore
 
+      - name: Install ChromeDriver
+        run: |
+          curl -o chromedriver_win32.zip https://chromedriver.storage.googleapis.com/131.0.6778.6900/chromedriver_win32.zip
+          tar -xf chromedriver_win32.zip -C ./chromedriver
+          echo "PATH=$PATH:${{ github.workspace }}/chromedriver" >> $GITHUB_ENV
+
       # Build the project
       - name: Build the project
         run: dotnet build --no-restore
