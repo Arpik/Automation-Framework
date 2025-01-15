@@ -8,6 +8,7 @@ namespace AutomationFramework.Tests
 {
     public class BaseTest
     {
+        [ThreadStatic]
         protected IWebDriver Driver;
 
         public void InitializeDriver(BrowserType browserType)
