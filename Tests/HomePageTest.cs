@@ -6,6 +6,7 @@ using System;
 namespace AutomationFramework.Tests
 {
     [TestFixture]
+    [Parallelizable(ParallelScope.All)]
     public class HomePageTests : BaseTest
     {
         // Get all BrowserType values dynamically

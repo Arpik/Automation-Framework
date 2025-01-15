@@ -12,6 +12,7 @@ namespace AutomationFramework.Tests
 {
 
     [TestFixture]
+    [Parallelizable(ParallelScope.All)]
     public class TextBoxTests : BaseTest
     {
         // Get all BrowserType values dynamically
