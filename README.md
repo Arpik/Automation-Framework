@@ -1,4 +1,4 @@
-# Automation Framework
+# AI Generated Test Data Automation Framework
 
 🚀 Automation Framework for seamless testing of web and desktop applications, 
 designed to provide scalability, reliability, and ease of use. 
