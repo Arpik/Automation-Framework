@@ -1,74 +1,90 @@
-# AI Generated Test Data Automation Framework
+# AI-Integrated Automation Framework
 
-🚀 Automation Framework for seamless testing of web and desktop applications, 
-designed to provide scalability, reliability, and ease of use. 
-Built with C#, NUnit, and Selenium WebDriver, this framework supports parallel test execution, 
-JSON-based test data management, and dynamic browser configuration.
+## Project Overview
+The **AI-Integrated Automation Framework** is a test automation framework developed in **C#/.NET**. It combines the power of **Selenium** and **NUnit** for automating web applications, while also integrating AI-driven capabilities for intelligent test data generation. This framework is designed to enhance testing accuracy, scalability, and maintainability by producing realistic, context-aware test data.
 
+---
 
+## Features
+- **AI-Powered Test Data Generation:**
+  - Automatically generates realistic and diverse test data using AI algorithms.
+  - Context-aware data generation for different testing scenarios.
 
-# Overview
+- **Selenium Integration:**
+  - Supports web application automation for multiple browsers.
+  - Provides easy-to-use page object model (POM) implementations.
 
-This project is a highly extensible automation framework designed for:
+- **NUnit Integration:**
+  - Enables test organization and execution.
+  - Generates detailed reports for test results.
 
-* Web application testing.
-* Desktop application testing.
-* Streamlined test data management using JSON.
-* Dynamic browser configuration for multi-browser testing.
+- **Modular Design:**
+  - Well-structured and scalable for easy maintenance.
+  - Supports adding and managing multiple test cases seamlessly.
 
+- **Efficient Data Handling:**
+  - Uses `System.Text.Json` for lightweight and efficient data serialization.
 
+---
 
-# Features 
+## Installation
+1. **Clone the Repository:**
+   ```bash
+   git clone https://github.com/yourusername/ai-integrated-automation-framework.git
+   ```
 
-✔️ Supports cross-browser testing (Chrome, Firefox, Edge).
+2. **Open the Project in Visual Studio:**
+   - Navigate to the project directory.
+   - Open the `.sln` file in Visual Studio.
 
-✔️ Parallel test execution for faster feedback.
+3. **Install Required NuGet Packages:**
+   - Open the **NuGet Package Manager**.
+   - Install the following dependencies:
+     - Selenium.WebDriver
+     - NUnit
+     - System.Text.Json
 
-✔️ JSON-based test data integration for flexibility.
+4. **Build the Solution:**
+   - Go to **Build** → **Rebuild Solution** in Visual Studio.
 
-✔️ Modular and reusable page object model (POM).
+---
 
-✔️ Easy integration with CI/CD pipelines using GitHub Actions.
+## Usage
+1. **Add Test Cases:**
+   - Write your test cases in the `Tests` folder using NUnit.
 
-✔️ Logging and reporting for better test insights.
+2. **Run Tests:**
+   - Open the **Test Explorer** in Visual Studio.
+   - Select and execute test cases or the entire suite.
 
+3. **Generate Test Data:**
+   - Customize the AI-driven test data generator in the `AIDataGenerator.cs` file under the `DataGenerator` folder.
 
+4. **View Results:**
+   - Access detailed test execution results and reports.
 
-# Technologies Used
+---
 
-- C#
-- NUnit
-- Selenium WebDriver
-- JSON.NET (for test data management)
-- GitHub Actions (for CI/CD)
+## Folder Structure
+```
+├── DataGenerator
+│   ├── AIDataGenerator.cs  # AI-powered test data generation logic
+│   ├── UserData.cs         # Data model for user test data
+├── Pages
+│   ├── [PageObjects].cs   # Page Object Model classes for web and desktop apps
+├── Tests
+│   ├── [YourTestCases].cs # NUnit test cases
+├── JSON
+│   ├── [TestData].json    # Sample test data files
+├── Drivers
+│   ├── [BrowserDrivers]   # WebDriver binaries
+├── README.md              # Project documentation
+```
 
+---
 
-
-# Parallel Execution
-
-This framework supports parallel test execution for improved efficiency. 
-Tests are distributed across multiple threads or browsers dynamically.
-
-To enable parallelism, ensure the following:
-
-- Use the [Parallelizable] attribute in your test classes.
-- Configure the ParallelScope appropriately.
-
-
-
-# Folder Structure
-
-AutomationFramework/
-
-- Drivers/               *WebDriver configurations*
-
-- Pages/                 *Page Object Models*
-
-- Tests/                 *Test files*
-
-- TestData/              *JSON files for test data*
-
-- Utilities/             *Helper classes and utilities*
-
-- README.md/             *Project documentation*
-
+## Technologies Used
+- **Programming Language:** C#/.NET
+- **Automation Tools:** Selenium, NUnit
+- **AI Integration:** AI-based test data generation
+- **Data Serialization:** System.Text.Json
