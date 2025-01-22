@@ -47,7 +47,6 @@ The **AI-Integrated Automation Framework** is a test automation framework develo
 4. **Build the Solution:**
    - Go to **Build** → **Rebuild Solution** in Visual Studio.
 
----
 
 ## Usage
 1. **Add Test Cases:**
@@ -63,25 +62,7 @@ The **AI-Integrated Automation Framework** is a test automation framework develo
 4. **View Results:**
    - Access detailed test execution results and reports.
 
----
 
-## Folder Structure
-```
-├── DataGenerator
-│   ├── AIDataGenerator.cs  # AI-powered test data generation logic
-│   ├── UserData.cs         # Data model for user test data
-├── Pages
-│   ├── [PageObjects].cs   # Page Object Model classes for web and desktop apps
-├── Tests
-│   ├── [YourTestCases].cs # NUnit test cases
-├── JSON
-│   ├── [TestData].json    # Sample test data files
-├── Drivers
-│   ├── [BrowserDrivers]   # WebDriver binaries
-├── README.md              # Project documentation
-```
-
----
 
 ## Technologies Used
 - **Programming Language:** C#/.NET
